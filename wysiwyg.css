@@ -1,0 +1,45 @@
+body {
+	font-family: "open sans", arial, sans-serif;
+	
+}
+
+h2 {
+	font-family: oswald, arial, sans-serif;
+}
+
+img {
+	border-radius: 50px;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	background-color: black;
+	min-height: 700px;
+}
+
+.search-bar {
+	width: 100%;
+}
+
+.person-card {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 50px;
+}
+
+.profile {
+	padding: 30px;
+	text-align: center;
+}
+
+.light-blue {
+	background-color: lightblue;
+}
+
+.light-yellow {
+	background-color: lightyellow;
+}
