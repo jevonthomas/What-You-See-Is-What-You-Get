@@ -1,6 +1,7 @@
 body {
 	font-family: "open sans", arial, sans-serif;
-	
+	margin: 0;
+
 }
 
 h2 {
@@ -20,6 +21,8 @@ img {
 
 .search-bar {
 	width: 100%;
+	margin: 0;
+	border: 0;
 }
 
 .person-card {
@@ -42,4 +45,8 @@ img {
 
 .light-yellow {
 	background-color: lightyellow;
+}
+
+.person-card:active {
+  border: 12px dotted white;
 }
