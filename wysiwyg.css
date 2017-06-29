@@ -39,14 +39,20 @@ img {
 	text-align: center;
 }
 
-.light-blue {
-	background-color: lightblue;
-}
-
-.light-yellow {
-	background-color: lightyellow;
+.bio section {
+	padding-right: 20px;
 }
 
 .person-card:active {
   border: 12px dotted white;
+}
+
+/*For every even numbered element, have a light yellow background.
+For every odd numbered element, have a light blue background*/
+.container article:nth-of-type(odd) {
+	background-color: lightblue;
+}
+
+.container article:nth-of-type(even) {
+	background-color: lightyellow;
 }

@@ -1,3 +1,5 @@
+//Create an array of objects that represents famous people.
+let person = [
 {
   title: "Actor",
   name: "Bruce Lee",
@@ -7,7 +9,7 @@
     birth: 1940,
     death: 1973
   }
-}
+},
 
 {
   title: "Professional Boxer",
@@ -19,3 +21,5 @@
     death: 2016
   }
 }
+]
+
