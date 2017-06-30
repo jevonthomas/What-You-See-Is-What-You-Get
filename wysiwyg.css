@@ -19,7 +19,7 @@ img {
 	min-height: 700px;
 }
 
-.search-bar {
+#search-bar {
 	width: 100%;
 	margin: 0;
 	border: 0;
@@ -43,6 +43,7 @@ img {
 	padding-right: 20px;
 }
 
+/*When you click on one of the person elements, a dotted border should appear around it.*/
 .person-card:active {
   border: 12px dotted white;
 }
