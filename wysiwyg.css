@@ -1,7 +1,7 @@
 body {
 	font-family: "open sans", arial, sans-serif;
 	margin: 0;
-
+	box-sizing: border-box;
 }
 
 h2 {
@@ -44,16 +44,16 @@ img {
 }
 
 /*When you click on one of the person elements, a dotted border should appear around it.*/
-.person-card:active {
-  border: 12px dotted white;
+.active {
+  border: 8px dotted black;
 }
 
 /*For every even numbered element, have a light yellow background.
 For every odd numbered element, have a light blue background*/
-.container article:nth-of-type(odd) {
+#container article:nth-of-type(odd) {
 	background-color: lightblue;
 }
 
-.container article:nth-of-type(even) {
+#container article:nth-of-type(even) {
 	background-color: lightyellow;
 }

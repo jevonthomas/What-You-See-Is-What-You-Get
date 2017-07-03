@@ -4,7 +4,7 @@ let person = [
   title: "Actor",
   name: "Bruce Lee",
   bio: "Lee Jun-fan, known professionally as Bruce Lee, was a Hong Kong and American actor, film director, martial artist, philosopher and founder of the martial art Jeet Kune Do. Lee was the son of Cantonese opera star Lee Hoi-chuen.",
-  image: "https://en.wikipedia.org/wiki/Bruce_Lee#/media/File:Bruce_Lee_1973.jpg",
+  image: "https://s-media-cache-ak0.pinimg.com/736x/20/f0/2d/20f02df71ec8907b4f36d9cbd27c6cb7.jpg",
   lifespan: {
     birth: 1940,
     death: 1973
@@ -15,7 +15,7 @@ let person = [
   title: "Professional Boxer",
   name: "Muhammad Ali",
   bio: "Muhammad Ali was an American professional boxer and activist. He is widely regarded as one of the most significant and celebrated sports figures of the 20th century.",
-  image: "https://en.wikipedia.org/wiki/Muhammad_Ali#/media/File:Muhammad_Ali_NYWTS.jpg",
+  image: "https://peopledotcom.files.wordpress.com/2016/08/muhammad-ali-z-600.jpg?w=600",
   lifespan: {
     birth: 1942,
     death: 2016
@@ -23,31 +23,32 @@ let person = [
 }
 ]
 
+//Insert each person card into the DOM
 for (let i = 0; i < person.length; i++) {
-  document.getElementsByClassName("container")[0].innerHTML +=
+  document.getElementById("container").innerHTML +=
       `<article class="person-card">
         <div class="profile">
-          ${person.image} width="200px" height="200px" alt="profile photo">
-          <header><h2>${person.name} | ${person.title}</h2></header>
-          <footer>${person.lifespan} - ${person.lifespan}</footer>
+          <img src="${person[i].image}" width="200px" height="200px" alt="profile photo">
+          <header><h2>${person[i].name} | ${person[i].title}</h2></header>
+          <footer>${person[i].lifespan.birth} - ${person[i].lifespan.death}</footer>
         </div>
         <div class="bio">
-          <section>${person.bio}</section>
+          <section class="person--card">${person[i].bio}</section>
         </div>
       </article>`
 }
 
-// When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
-let personCard = document.getElementsByClassName("person-card");
-let inputBar = document.getElementById("search-bar");
-for (let i = 0; i < personCard.length; i++) {
-  //add event listener for person card click to bring the input bar into focus
-  personCard[i].addEventListener("click", function() {
-    inputBar.focus();
-    //add keyup event for input bar
-    inputBar.addEventListener("keyup", function(){
-      //input value will appear in .bio section element
-      event.target.nextSibling.nextSibling.nextSibling.nextSibling.childNodes[3].childNodes[3].childNodes[1].innerHTML = document.getElementById("search-bar").value;
+let personContainer = document.getElementsByClassName("person-card");
+let searchBar = document.getElementById("search-bar");
+
+// Event listeners are created
+for (var i = 0; i < personContainer.length; i++) {
+  personContainer[i].addEventListener("click", function () {
+    searchBar.value = "";
+    searchBar.focus();
     })
-  })
-}
+  searchBar.addEventListener("keyup", function() {
+    console.log(personContainer[i]);
+    personContainer[i].innerHTML = searchBar.value;
+  });
+};
