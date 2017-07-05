@@ -33,22 +33,42 @@ for (let i = 0; i < person.length; i++) {
           <footer>${person[i].lifespan.birth} - ${person[i].lifespan.death}</footer>
         </div>
         <div class="bio">
-          <section class="person--card">${person[i].bio}</section>
+          <section>${person[i].bio}</section>
         </div>
       </article>`
 }
 
-let personContainer = document.getElementsByClassName("person-card");
-let searchBar = document.getElementById("search-bar");
+// When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
+let personCard = document.getElementsByClassName("person-card");
+let inputBar = document.getElementById("search-bar");
+for (let i = 0; i < personCard.length; i++) {
+//add event listener for person card click to bring the input bar into focus
+  personCard[i].addEventListener("click", function() {
+    inputBar.focus();
+    inputBar.value = "";
+    //removes the active class from any cards that currently has the class
+    for (let j = 0; j < personCard.length; j++) {
+      personCard[j].classList.remove("active");
+    }
+    //adds the active class to the clicked card
+    personCard[i].classList.toggle("active");
+  })
+}
 
-// Event listeners are created
-for (var i = 0; i < personContainer.length; i++) {
-  personContainer[i].addEventListener("click", function () {
-    searchBar.value = "";
-    searchBar.focus();
-    })
-  searchBar.addEventListener("keyup", function() {
-    console.log(personContainer[i]);
-    personContainer[i].innerHTML = searchBar.value;
-  });
-};
+//add event listener for the enter key to clear the input bar after being pressed
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    inputBar.focus();
+    inputBar.value = "";
+  }
+})
+
+//assign the card with the active class added to it to a variable
+let activeCard = document.getElementsByClassName("active");
+for (let j = 0; j < personCard.length; j++) {
+  //add keyup event for input bar
+  inputBar.addEventListener("keyup", function(){
+  //input value will appear in .bio section element
+    activeCard[j].childNodes[3].childNodes[1].innerHTML = document.getElementById("search-bar").value;
+  })
+}
