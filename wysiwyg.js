@@ -33,7 +33,7 @@ for (let i = 0; i < person.length; i++) {
           <footer>${person[i].lifespan.birth} - ${person[i].lifespan.death}</footer>
         </div>
         <div class="bio">
-          <section>${person[i].bio}</section>
+          <div>${person[i].bio}</div>
         </div>
       </article>`
 }
@@ -52,6 +52,16 @@ for (let i = 0; i < personCard.length; i++) {
     }
     //adds the active class to the clicked card
     personCard[i].classList.toggle("active");
+    //assign the card with the active class added to it to a variable
+    let activeCard = document.getElementsByClassName("active");
+    for (let j = 0; j < activeCard.length; j++) {
+      //add keyup event for input bar
+      inputBar.addEventListener("keyup", function(){
+      console.log(activeCard);
+      //input value will appear in .bio section element
+        activeCard[j].childNodes[3].childNodes[1].innerHTML = document.getElementById("search-bar").value;
+      })
+    }
   })
 }
 
@@ -62,13 +72,3 @@ document.addEventListener("keyup", function(event) {
     inputBar.value = "";
   }
 })
-
-//assign the card with the active class added to it to a variable
-let activeCard = document.getElementsByClassName("active");
-for (let j = 0; j < personCard.length; j++) {
-  //add keyup event for input bar
-  inputBar.addEventListener("keyup", function(){
-  //input value will appear in .bio section element
-    activeCard[j].childNodes[3].childNodes[1].innerHTML = document.getElementById("search-bar").value;
-  })
-}

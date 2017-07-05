@@ -39,8 +39,9 @@ img {
 	text-align: center;
 }
 
-.bio section {
+.bio div {
 	padding-right: 20px;
+	width: 75%;
 }
 
 /*When you click on one of the person elements, a dotted border should appear around it.*/
